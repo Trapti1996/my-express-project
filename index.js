@@ -6,8 +6,8 @@ app.use(express.json());
 
 // GET request example
 app.get('/api/user/:id', (req, res) => {
-    const userId = req.params.id;
-    const user = {
+    let userId = req.params.id;
+    let user = {
         id: userId,
         name: 'John Doe',
         email: 'john@example.com'
@@ -17,13 +17,13 @@ app.get('/api/user/:id', (req, res) => {
 
 // POST request example
 app.post('/api/user', (req, res) => {
-    const { name, email } = req.body;
-    const newUser = {
-        id: Math.floor(Math.random() * 1000), // Random ID
+    let { name, email } = req.body;
+    let newUser = {
+        id: Math.floor(Math.random() * 1000), 
         name,
         email
     };
-    res.status(201).json(newUser); // 201 status code for resource created
+    res.status(201).json(newUser); 
 });
 
 app.listen(port, () => {
